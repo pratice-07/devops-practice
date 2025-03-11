@@ -1,0 +1,19 @@
+name: CI/CD Pipeline
+
+on: [push, pull_request]  # Runs on every push or PR
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu environment
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Get the repo code
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Run a simple script
+        run: python app.py  # Run our Python script
